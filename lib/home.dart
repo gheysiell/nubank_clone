@@ -2,15 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nubank_clone/utils/models.dart';
 
-class HomeScreenWrapper extends StatelessWidget {
-  const HomeScreenWrapper({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const HomeScreen();
-  }
-}
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -34,7 +25,11 @@ class HomeScreen extends StatelessWidget {
 
     setBarsColor(Colors.black, const Color(0xFF820AD1));
 
-    const TextStyle textStyleTitles = TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600);
+    const TextStyle textStyleTitles = TextStyle(
+      color: Colors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+    );
 
     final List<IconAndTitle> listActions = [
       IconAndTitle(
@@ -120,11 +115,12 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
-          child: AppBar(
-            backgroundColor: const Color(0xFF820AD1),
-            elevation: 0,
-          )),
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(
+          backgroundColor: const Color(0xFF820AD1),
+          elevation: 0,
+        ),
+      ),
       body: Container(
         height: height,
         width: width,
@@ -147,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             SizedBox(
                               child: CircleAvatar(
-                                backgroundColor: Color.fromARGB(255, 155, 47, 228),
+                                backgroundColor: Color(0xFF9B2FE4),
                                 child: Icon(
                                   Icons.add_photo_alternate_outlined,
                                   size: 24,
@@ -179,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                                   size: 22,
                                 ),
                               ],
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -188,7 +184,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Text(
                         'Olá, $fulano',
-                        style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       )
                     ],
                   ),
@@ -214,8 +214,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Text(
                         'R\$ 11.671,72',
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                      )
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -258,7 +261,7 @@ class HomeScreen extends StatelessWidget {
                                 listActions[index].title,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
-                              )
+                              ),
                             ],
                           ),
                         );
@@ -272,18 +275,23 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                    decoration: BoxDecoration(color: const Color(0xFFEBEBEB), borderRadius: BorderRadius.circular(12)),
-                    child: const Row(children: [
-                      Icon(
-                        Icons.credit_card_rounded,
-                        size: 22,
-                      ),
-                      SizedBox(width: 12),
-                      Text(
-                        'Meus cartões',
-                        style: TextStyle(fontWeight: FontWeight.w500),
-                      )
-                    ]),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFEBEBEB),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(
+                          Icons.credit_card_rounded,
+                          size: 22,
+                        ),
+                        SizedBox(width: 12),
+                        Text(
+                          'Meus cartões',
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -294,23 +302,24 @@ class HomeScreen extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: listInfos.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            margin: EdgeInsets.only(
-                                left: index == 0 ? 20 : 0, right: index == (listInfos.length - 1) ? 20 : 15),
-                            width: 260,
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.fromLTRB(20, 4, 38, 4),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFEBEBEB),
-                              borderRadius: BorderRadius.circular(14),
-                            ),
-                            child: Text(listInfos[index]),
-                          );
-                        }),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: listInfos.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: EdgeInsets.only(
+                              left: index == 0 ? 20 : 0, right: index == (listInfos.length - 1) ? 20 : 15),
+                          width: 260,
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.fromLTRB(20, 4, 38, 4),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFEBEBEB),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Text(listInfos[index]),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 const Divider(
@@ -333,7 +342,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Icon(
                             Icons.keyboard_arrow_right_rounded,
-                          )
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -341,21 +350,32 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const Text(
                         'Fatura fechada',
-                        style: TextStyle(color: Color(0xFF5B5B5B), fontWeight: FontWeight.w500, fontSize: 16),
+                        style: TextStyle(
+                          color: Color(0xFF5B5B5B),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
                       ),
                       const SizedBox(
                         height: 7,
                       ),
                       const Text(
                         'R\$ 1.567,43',
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
                       ),
                       const SizedBox(
                         height: 7,
                       ),
                       const Text(
                         'Vencimento dia 29',
-                        style: TextStyle(color: Color(0xFF5B5B5B), fontWeight: FontWeight.w500, fontSize: 14),
+                        style: TextStyle(
+                          color: Color(0xFF5B5B5B),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
                       ),
                       const SizedBox(
                         height: 14,
@@ -383,7 +403,7 @@ class HomeScreen extends StatelessWidget {
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFFEBEBEB),
-                                shadowColor: Colors.transparent,
+                                shadowColor: const Color.fromARGB(0, 250, 147, 147),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
                             onPressed: () {},
                             child: const Text(
@@ -430,10 +450,10 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Assistente de pagamentos',
                               style: TextStyle(fontWeight: FontWeight.w500),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -453,7 +473,10 @@ class HomeScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(left: 20),
                         child: const Text(
                           'Descubra mais',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                       Container(
@@ -493,7 +516,10 @@ class HomeScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             listFindOutMore[index].title,
-                                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w700,
+                                            ),
                                           ),
                                           const SizedBox(
                                             height: 10,
@@ -513,9 +539,10 @@ class HomeScreen extends StatelessWidget {
                                             child: ElevatedButton(
                                               onPressed: () {},
                                               style: ButtonStyle(
-                                                  shape: MaterialStatePropertyAll(
-                                                      RoundedRectangleBorder(borderRadius: BorderRadius.circular(28))),
-                                                  backgroundColor: const MaterialStatePropertyAll(Color(0xFF820Ad1))),
+                                                shape: MaterialStatePropertyAll(
+                                                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(28))),
+                                                backgroundColor: const MaterialStatePropertyAll(Color(0xFF820Ad1)),
+                                              ),
                                               child: Text(
                                                 listFindOutMore[index].buttonTitle,
                                                 style: const TextStyle(
